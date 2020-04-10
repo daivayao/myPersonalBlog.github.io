@@ -1,341 +1,334 @@
-﻿<!DOCTYPE html>
-
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Scrolling speed - fullPage.js</title>
+	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage demo scrolling speed." />
+	<meta name="keywords"  content="fullpage,jquery,demo,scrolling,speed,scrollingSpeed" />
+  <meta name="Resource-type" content="Document" />
+  <meta name="viewport"
+            content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />
 
-	<title>关于 我</title>
-
-	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+	<style>
+		
+		.fullpage .fp-tableCell{
+			display: inline-block;
+		}
+		#section0{
+			background-color: pink;
+		}
+		.boxs{
+			height: 100%;
+			background-color: #1D2539;
+		}
+		.topBox{
+			height: 20%;
+			background-color: aqua;
+			position: relative;
+			/* animation: myfirst 2s; */
+		}
+		.title{
+			position: relative;
+			width: 200px;
+			overflow: hidden;
+			right:-200px ;
+			float: right;
+			height: 40px;
+			line-height: 37px;
+			margin-top: 32px;
+			border-radius: 23px 0 0 23px;
+			font-size: 16px;
+			font-weight: 600;
+			color: #fff;
+			font: bold "Microsoft YaHei";
+			font: bold 17px/1.5em "Microsoft YaHei";
+			line-height: 40px;
+			background: #156E6E;
+		}
+		.triangle{
+			height: 20px;
+			width: 20px;
+			background: #00FFFF;
+			position: absolute;
+			bottom: -9px;
+			left: 48%;
+			transform: rotate(44deg);
+			/* opacity:0; */
+			opacity: 0.2;
+		}
+		.centent{
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			background-color: #00FFFF;
+			/* text-align: center; */
+			margin: 0 auto;
+			margin-top: 30px;
+			overflow: hidden;
+		}
+		.centent img{
+			width: 0px;
+			height: 0px;
+			border-radius: 50%;
+			/* line-height: 92px; */
+			text-align: center;
+			margin-top: 6px;
+		}
+		.names{
+			font-size: 14px;
+			margin-top: 20px;
+			color: #fff;
+			font: bold "Microsoft YaHei";
+			font: bold 17px/1.5em "Microsoft YaHei";
+			opacity: 0;
+		}
+		.introduce{
+			border: 1px solid aqua;
+			margin: 10px;
+			height: 0px;
+			width: 0px;
+			overflow: hidden;
+		}
+		.lefts{
+			width: 34%;
+			left: -126px;
+		}
+		.rights{
+			width: 62%;
+			right: 238px;
+		}
+		.lefts, .rights{
+			position: relative;
+			display: inline-block;	
+			font-size: 14px;
+			color: #fff;
+			margin-top: 20px;
+			line-height: 40px;
+		}
+		.lefts p, .rights p{
+			text-align: left;
+			padding-left: 10px;
+			
+		}
+		
+		@keyframes myfirst{
+			0%{
+				height: 20%;
+			}
+			100%{
+				height: 100%;
+			}
+		}
+	</style>
 </head>
+<body>
 
-<body class="loading-process">
 
-<div class="loading">
 
-	<div class="loading-circle"></div>
+<ul id="menu">
+	<li data-menuanchor="firstPage"><a href="#firstPage">1</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">2</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">3</a></li>
+	<li data-menuanchor="4thpage"><a href="#4thpage">4</a></li>
+</ul>
 
-	<div class="loading-avatar"><img src="images/avatar@2x.jpg" alt="" width="100" height="100"></div>
-
-	<div class="loading-info">正在努力加载中...</div>
-
-</div>
-
-<div class="section-header">
-
-	<div class="section">
-
-		<nav class="nav" role="navigation">
-
-			<ul>
-
-				<li class="nav-about fade fade1"><a href="#about">关于我</a></li>
-
-				<li class="nav-works fade fade4"><a href="#works">作品</a></li>
-
-				<li class="fade back-home"><a href="#top">首页</a></li>
-
-				<li class="nav-skill fade fade2"><a href="#skill">能力</a></li>
-
-				<li class="nav-contact fade fade3"><a href="#contact">联系</a></li>
-
-			</ul>
-
-		</nav>
-
-	</div>
-
-	<div class="nav-bg"></div>
-
-</div>
-
-<div class="home-bg">
-
-	<img src="images/home-bg.jpg" alt="" width="1000" height="667">
-
-</div>
-
-<div class="section-wrap section-fristpage" data-slide="1"  >
-
-	<div class="section">
-
-		<div class="section-content">
-
-			<p class="fade fade1">hello，我是小菜王耀 </p>
-
-			<p class="fade fade2">欢迎光临</p>
-
-			<p class="fade fade3">想了解更多，往下滚动哦 ^_^</p>
-
-		</div>
-
-		<a class="button2 scroll-tip fade fade4" data-slide="3" title="">向下滚动</a>
-
-	</div>
-
-</div>
-
-<div id="about" data-slide="2" data-stellar-background-ratio="0.3" class="section-wrap section-about">
-
-	<div class="section">
-
-		<div class="about-content clearfix section-content">
-
-			<div class="introli">
-
-			  <span class="left_icon"><img class="bio-text bio-icon-1" src="images/bio-icon-1.png" data-stellar-ratio="0.7" ></span>
-
-			  <span class="right_content "><img class="bio-text bio-text-1" src="images/bio-text-1.png" data-stellar-ratio="0.7" ></span>
-
+<div id="fullpage">
+	<div class="section " id="section0">
+		<div class="boxs">
+			<div class="topBox">
+				<div class="title">
+					个人博客/MYBOKE
+				</div>
+				<div class="triangle"></div>
+			</div>
+			<div class="centent">
+				<img src="images/my.png" alt="">
+			</div>
+			<div class="names">
+				王耀
 			</div>
 
-			<div class="introli">
-
-			  <span class="left_icon"><img class="bio-text bio-icon-2" src="images/bio-icon-2.png" data-stellar-ratio="0.7" ></span>
-
-			  <span class="right_content"><img class="bio-text bio-text-2" src="images/bio-text-2.png" data-stellar-ratio="0.7" ></span>
-
+			<div class="introduce">
+				<div class="lefts">
+					<p>
+						<span>性别 ：</span> <span>男</span>
+					</p>
+					<p>
+						<span>年龄 ：</span> <span>27</span>
+					</p>
+					<p>
+						<span>学历 ：</span> <span>专科</span>
+					</p>
+					<p>
+						<span>工作经验 ：</span> <span>4年</span>
+					</p>
+				</div>
+				<div class="rights">
+					<p>
+						<span>毕业学院 ：</span> <span>兰州防炮兵学院</span>
+					</p>
+					<p>
+						<span>现在地址 ：</span> <span>上海-青浦区</span>
+					</p>
+					<p>
+						<span>联系电话 ：</span> <span>17612165313</span>
+					</p>
+					<p>
+						<span>联系邮箱 ：</span> <span>614000561@qq.com</span>
+					</p>
+				</div>
 			</div>
-
-			<div class="introli">
-
-			  <span class="left_icon"><img class="bio-text bio-icon-3" src="images/bio-icon-3.png" data-stellar-ratio="0.7" ></span>
-
-			  <span class="right_content"><img class="bio-text bio-text-3" src="images/bio-text-3.png" data-stellar-ratio="0.7" ></span>
-
-			</div>
-
-
-
 		</div>
-
-
-
+		
 	</div>
-
-	<a class="button2 dark-button2 scroll-tip" style="background-position:0 -60px;" data-slide="3" title=""></a>
-
+	<div class="section" id="section1">
+	    
+	</div>
+	<div class="section" id="section2">
+		
+  </div>
+  
+  <div class="section" id="section3">
+		
+	</div>
 </div>
 
-<div id="works" class="section-wrap section-works" data-slide="3" >
-
-	<div class="section">
-
-		<div class="works-content section-content">
-
-			<h1>前端作品</h1>
-
-			<div class="works-list clearfix">
-
-				<div class="works-item first fade fade1">
-
-					<a href="http://www.jq22.com/" target="_blank">
-
-						<img src="images/works/yizaojia.jpg" alt="" width="300" height="180">
-
-						<div class="work-info">
-
-							<h2>丽芙家居</h2>
-
-							<p><strong>开发时间</strong>：2016年12月到2017年1月<br>
-
-							<strong>工作详情</strong>：移动端开发，为了适配移动端而开发的页面，可以处理手机端的兼容性问题。</p>
-
-						</div>
-
-					</a>
-
-				</div>
-
-				<div class="works-item fade fade2">
-
-					<a href="http://www.jq22.com" target="_blank">
-
-						<img src="images/works/91zaojia.jpg" alt="" width="300" height="180">
-
-						<div class="work-info">
-
-							<h2>百联</h2>
-
-							<p><strong>开发时间</strong>：2016年3月到2016年4月<br>
-
-							<strong>工作详情</strong>：页面设计及前端制作。</p>
-
-						</div>
-
-					</a>
-
-				</div>
-
-				<div class="works-item fade fade3">
-
-					<a href="http://www.jq22.com/" target="_blank">
-
-						<img src="images/works/wenku.jpg" alt="" width="300" height="180">
-
-						<div class="work-info">
-
-							<h2>海正药业</h2>
-
-							<p><strong>开发时间</strong>：2015年9月到2015年10月<br>
-
-							<strong>工作详情</strong>：页面设计及前端绑定和制作。</p>
-
-						</div>
-
-					</a>
-
-				</div>
-
-
-
-
-		</div>
-
-		<a class="button2 scroll-tip fade fade4" data-slide="4" title="">向下滚动</a>
-
-	</div>
-
-</div>
-
-<div id="skill" class="section-wrap section-skill" data-slide="4">
-
-	<div class="section">
-
-		<div class="skill-content section-content">
-
-			<h1>相关技能</h1>
-
-			<ul>
-
-				<li class="fade fade1">熟练掌握语义化的 HTML 和具有兼容性的 CSS 模式，熟练手写符合 W3C 标准的结构和代码。</li>
-
-				<li class="fade fade3">	熟练掌握JavaScript，熟练操作BOM，DOM开发</li>
-
-				<li class="fade fade2">	熟练掌握jQuery，快速高效的实现页面功能。</li>
-
-				<li class="fade fade4">	掌握使用html5，CSS3，bootstrap，rem开发移动端响应式页面。</li>
-
-				<li class="fade fade4">	熟练掌握使用Ajax技术和后台进行数据交互，使用jsonp进行跨域请求</li>
-
-				<li class="fade fade3">	掌握使用artTemplate等模板引擎实现项目功能。</li>
-
-				<li class="fade fade2">	熟练掌握swiper，layer，fullPage等插件的使用。</li>
-
-				<li class="fade fade2">	熟悉Seajs进行模块化开发</li>
-
-				<li class="fade fade1">	了解git的常用的操作，会使用gulp对代码进行压缩混淆</li>
-
-				<li class="fade fade4">	了解AngularJS等主流框架的使用，了解MVC思想。</li>
-
-				<li class="fade fade2">喜欢接触新事物，有一定的自学能力。</li>
-
-			</ul>
-
-		</div>
-
-	</div>
-
-	<a class="button2 scroll-tip fade fade4"  data-slide="5" title="">向下滚动</a>
-
-</div>
-
-<div id="contact" class="section-wrap section-contact" data-slide="5">
-
-	<div class="section">
-
-		<div class="contact-content clearfix section-content">
-
-			<h1>联系本人</h1>
-
-			<div class="left">
-
-				<div class="contact-ways fade fade1">
-
-					<h2>社交网络</h2>
-
-					<ul>
-						<li>手机：17612165313</li>
-
-						<li>邮箱：614000561@qq.com</li>
-
-						<li>Q Q ：614000561</li>
-
-						<li>知乎：13034027188</li>
-
-
-
-
-					</ul>
-
-				</div>
-
-				<div class="contact-info fade fade2">
-
-					<p>虽然有社交网络，但是平时上的比较少，很多时候是只看不发！不过你可以关注我哦！</p>
-
-				</div>
-
-			</div>
-
-			<div class="right fade fade3">
-
-				<h2>项目外包</h2>
-
-				<p>如果你有前端相关的需求，可以联系我做外包，目前我主要做：</p>
-
-				<ul>
-
-					<li>网站布局设计及制作，网站页面制作。</li>
-
-					<li>根据需求，对网站前端进行修改和优化，或者转响应式处理。</li>
-
-					<li>企业网站建设及相关功能开发。</li>
-
-					<li>对于网站建设项目，我也有一些同行朋友可以推荐，也欢迎咨询！</li>
-
-				</ul>
-
-
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<a class="button2 button2-2-top scroll-tip" id="gototops" data-slide="1" href="#top" style="background-position: -60px 0;width:80px;height:80px;" title=""></a>
-
-</div>
-
-
-
-<div class="overlay"></div>
-
-<div class="state-indicator"></div>
-
-
-
+<script type="text/javascript" src="js/fullpage.js"></script>
+<!-- <script type="text/javascript" src="js/examples.js"></script> -->
 <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        menu: '#menu',//绑定菜单，设定的相关属性与anchors的值对应后，菜单可以控制滚动，默认为false。
+		anchors:['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],//anchors定义锚链接，默认为[]
+		lockAnchors: false,//是否锁定锚链接，默认为false,设为true后链接地址不会改变
+		navigation: false,//是否显示导航，默认为false
+		navigationPosition: 'right',//导航小圆点的位置
+		navigationTooltips: ['firstSlide', 'secondSlide'],//导航小圆点的提示
+		showActiveTooltip: false,//是否显示当前页面的tooltip信息
+		slidesNavigation: true,//是否显示横向幻灯片的导航，默认为false
+		slidesNavPosition: 'bottom',//横向导航的位置，默认为bottom，可以设置为top或bottom
+		 
+		//Scrolling
+		css3: true,//是否使用CSS3 transforms来实现滚动效果，默认为true
+		scrollingSpeed: 1500,//设置滚动速度，单位毫秒，默认700
+		autoScrolling: true,//是否使用插件的滚动方式，默认为true,若为false则会出现浏览器自带滚动条
+		fitToSection: true,//设置是否自适应整个窗口的空间，默认值：true
+		scrollBar: false,//是否包含滚动条，默认为false,若为true浏览器自带滚动条出现
+		easing: 'easeInOutCubic',//定义页面section滚动的动画方式，若修改此项需引入jquery.easing插件
+		easingcss3: 'ease',//定义页面section滚动的过渡效果，若修改此项需引入第三方插件
+		loopBottom: false,//滚动到最低部后是否连续滚动到顶部，默认为false
+		loopTop: false,//滚动到最顶部后是否连续滚动到底部，默认为false
+		loopHorizontal: true,//横向slide幻灯片是否循环滚动，默认为true
+		continuousVertical: false,//是否循环滚动，不兼容loopTop和loopBottom选项
+		normalScrollElements: '#element1, .element2',//避免自动滚动，滚动时的一些元素，例如百度地图
+		scrollOverflow: false,//内容超过满屏后是否显示滚动条，true则显示滚动条，若需滚动查看内容还需要jquery.slimscroll插件的配合
+		touchSensitivity: 15,//在移动设备中滑动页面的敏感性，默认为5最高100，越大越难滑动
+		normalScrollElementTouchThreshold: 5,
+		 
+		//Accessibility
+		keyboardScrolling: true,//是否可以使用键盘方向键导航，默认为true
+		animateAnchor: true,//锚链接是否可以控制滚动动画，默认为true,若为false则锚链接定位失效
+		recordHistory: true,//是否记录历史，默认为true,浏览器的前进后退可导航。若autoScrolling:false,那么这个属性将被关闭
+		 
+		//Design
+		controlArrows: true,//定义是否通过箭头来控制slide,默认true
+		verticalCentered: true,//定义每一页的内容是否垂直居中，默认true
+		resize : false,//字体是否随窗口缩放而缩放，默认false
+		sectionsColor: ['#1D2539', '#27BCA7', '#7BAABE', 'whitesmoke', '#ccddff'],//为每个section设置background-color属性
+		paddingTop: '3em',//设置每一个section顶部的padding,默认为0
+		paddingBottom: '10px',//设置每一个section底部的padding,默认为0
+		fixedElements: '#header, .footer',//固定元素，默认为null,需要配置一个jquery选择器，在页面滚动时，fixElements设置的元素不滚动
+		responsiveWidth: 0,
+		responsiveHeight: 0,
+		 
+		//Custom selectors
+		sectionSelector: '.section',//section选择器。默认为.section
+		slideSelector: '.slide',//slide选择器，默认为.slide
+		 
+		//events
+		onLeave: function(index, nextIndex, direction){},
+		afterLoad: function(anchorLink, index){
+			console.log(index);
+		},
+		afterRender: function(){},
+		afterResize: function(){},
+		afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
+		onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
+	
+    });
+	
 
-<script src="js/global.js"></script>
 
-<script src="js/waypoints.min.js"></script>
+	
+	window.onload =function(){
+		$(".title").animate({"right":0,'opacity':1},1000,function(){
+			console.log('hhhh');
+		});
+		$('.centent img').animate({'width':138,'height':138},1000,function(){
+			console.log('222');
+			$('.names').animate({'opacity':1},1000,()=>{
+				$('.introduce').animate({'height':200,'width':'95%'},1000,()=>{
+					$('.lefts').animate({'left':0},2000);
+					$('.rights').animate({'right':0},2000)
+				})
+			})
+		});
+		
+		$('#fullpage').scroll(function(){
+			console.log(111);
+		})
+	}
+	
 
-<script src="js/js.js"></script>
+//缓动动画函数
+function animate(obj, json, fn) {//json attr, target
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var flag = true;
+            for (var k in json) {
+                if (k === "opacity") {
+                    var leader = getStyle(obj, k) * 100;
+                    var target = json[k] * 100;
+                    var step = (target - leader) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    obj.style[k] = leader / 100;
+                } else if (k === "zIndex") {
+                    obj.style.zIndex = json[k];
+                } else {
+                    var leader = parseInt(getStyle(obj, k)) || 0;
+                    var target = json[k];
+                    var step = (target - leader) / 10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    obj.style[k] = leader + "px";
+                }
 
-<script src="js/jquery.stellar.min.js"></script>
+                if (leader != target) {
+                    flag = false;
+                }
+            }
+            if (flag) {
+                clearInterval(obj.timer);
+                if (fn) {
+                    fn();
+                }
+            }
+        }, 20);
+    }
 
-
+</script>
 
 </body>
-
 </html>
-
-
-
