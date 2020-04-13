@@ -32,13 +32,17 @@
 			height: 100%;
 			background-color: #1D2539;
 		}
-		.topBox{
-			height: 20%;
+		.topBox,.topBoxTwo{
+			height: 10%;
 			background-color: aqua;
 			position: relative;
-			/* animation: myfirst 2s; */
+			overflow: hidden;
+			
 		}
-		.title{
+		.topBoxTwo{
+			height: 10%;
+		}
+		.title,.titleTwo{
 			position: relative;
 			width: 200px;
 			overflow: hidden;
@@ -64,12 +68,11 @@
 			bottom: -9px;
 			left: 48%;
 			transform: rotate(44deg);
-			/* opacity:0; */
-			opacity: 0.2;
+			
 		}
 		.centent{
-			width: 150px;
-			height: 150px;
+			width: 0px;
+			height: 0px;
 			border-radius: 50%;
 			background-color: #00FFFF;
 			/* text-align: center; */
@@ -100,13 +103,31 @@
 			width: 0px;
 			overflow: hidden;
 		}
+		.introduceTwo{
+			height: 80%;
+			margin: 10px;
+			/* height: 0px; */
+			width: 92%;
+			overflow: hidden;
+			text-align: left;
+			color: #fff;
+			line-height: 25px;
+			padding: 10px 10px;
+			font-size: 0px;
+			animation: myfirst 3s 3s;
+			animation-fill-mode:forwards
+
+		}
+		/* .introduceTwo p{
+			
+		} */
 		.lefts{
 			width: 34%;
-			left: -126px;
+			left: -500px;
 		}
 		.rights{
 			width: 62%;
-			right: 238px;
+			right: -500px;
 		}
 		.lefts, .rights{
 			position: relative;
@@ -124,10 +145,40 @@
 		
 		@keyframes myfirst{
 			0%{
-				height: 20%;
+				/* transform: rotate(720deg); */
+				font-size: 0px;
 			}
+			/* 10%{
+				margin-top:20px;
+			}
+			20%{
+				margin-top: 10px;
+			}
+			30%{
+				margin-top: 30px;
+			}
+			40%{
+				margin-top: 10px;
+			} */
+			50%{
+				/* transform: rotate(360deg); */
+				font-size: 7px;
+			}
+			/* 60%{
+				margin-top: 10px;
+			}
+			70%{
+				margin-top: 30px;
+			}
+			80%{
+				margin-top: 10px;
+			}
+			90%{
+				margin-top: 30px;
+			} */
 			100%{
-				height: 100%;
+				/* transform: rotate(720deg); */
+				font-size: 14px;
 			}
 		}
 	</style>
@@ -193,7 +244,34 @@
 		
 	</div>
 	<div class="section" id="section1">
-	    
+		
+		<div class="boxs">
+			<div class="topBoxTwo">
+				<div class="titleTwo">
+					相关技能/SKILLS
+				</div>
+				
+				<div class="triangle"></div>
+			</div>
+			
+
+			<div class="introduceTwo">
+				<div>
+					<p> 熟练掌握语义化的 HTML 和具有兼容性的 CSS 模式，熟练手写符合 W3C 标准的结构和代码。</p>
+					<p> 熟练掌握JavaScript，熟练操作BOM，DOM开发</p>
+					<p> 熟练掌握jQuery，快速高效的实现页面功能。</p>
+					<p> 熟练掌握Vue全家桶 vuex/v-router/ axios主流框架的使用，了解MVC思想。</p>
+					<p> 熟练掌握Vue+element(PC) vue+vant(移动端)ui组件开发</p>
+					<p> 熟练掌握小程序开发。</p>
+					<p> 熟练掌握Es6语法。</p>
+					<p> 熟练掌握git的常用的操作，会使用gulp对代码进行压缩混淆</p>
+					<p> 熟练掌握使用html5，CSS3，bootstrap，rem开发移动端响应式页面。</p>
+					<p> 熟练掌握使用Ajax、axios 技术和后台进行数据交互，使用jsonp进行跨域请求</p>
+					<p> 熟练掌握swiper，layer，fullPage等插件的使用。</p>
+					<p> 喜欢接触新事物，有一定的自学能力。</p>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="section" id="section2">
 		
@@ -245,7 +323,7 @@
 		controlArrows: true,//定义是否通过箭头来控制slide,默认true
 		verticalCentered: true,//定义每一页的内容是否垂直居中，默认true
 		resize : false,//字体是否随窗口缩放而缩放，默认false
-		sectionsColor: ['#1D2539', '#27BCA7', '#7BAABE', 'whitesmoke', '#ccddff'],//为每个section设置background-color属性
+		sectionsColor: ['#1D2539', '#1D2539', '#1D2539', '#1D2539', '#1D2539'],//为每个section设置background-color属性
 		paddingTop: '3em',//设置每一个section顶部的padding,默认为0
 		paddingBottom: '10px',//设置每一个section底部的padding,默认为0
 		fixedElements: '#header, .footer',//固定元素，默认为null,需要配置一个jquery选择器，在页面滚动时，fixElements设置的元素不滚动
@@ -260,6 +338,12 @@
 		onLeave: function(index, nextIndex, direction){},
 		afterLoad: function(anchorLink, index){
 			console.log(index);
+			if(index.index==1){
+				endOne();
+				statrTwo();
+			}else if(index.index==0){
+				statr();
+			}
 		},
 		afterRender: function(){},
 		afterResize: function(){},
@@ -272,18 +356,8 @@
 
 	
 	window.onload =function(){
-		$(".title").animate({"right":0,'opacity':1},1000,function(){
-			console.log('hhhh');
-		});
-		$('.centent img').animate({'width':138,'height':138},1000,function(){
-			console.log('222');
-			$('.names').animate({'opacity':1},1000,()=>{
-				$('.introduce').animate({'height':200,'width':'95%'},1000,()=>{
-					$('.lefts').animate({'left':0},2000);
-					$('.rights').animate({'right':0},2000)
-				})
-			})
-		});
+		
+		statr();
 		
 		$('#fullpage').scroll(function(){
 			console.log(111);
@@ -292,41 +366,50 @@
 	
 
 //缓动动画函数
-function animate(obj, json, fn) {//json attr, target
-        clearInterval(obj.timer);
-        obj.timer = setInterval(function () {
-            var flag = true;
-            for (var k in json) {
-                if (k === "opacity") {
-                    var leader = getStyle(obj, k) * 100;
-                    var target = json[k] * 100;
-                    var step = (target - leader) / 10;
-                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
-                    leader = leader + step;
-                    obj.style[k] = leader / 100;
-                } else if (k === "zIndex") {
-                    obj.style.zIndex = json[k];
-                } else {
-                    var leader = parseInt(getStyle(obj, k)) || 0;
-                    var target = json[k];
-                    var step = (target - leader) / 10;
-                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
-                    leader = leader + step;
-                    obj.style[k] = leader + "px";
-                }
+function statr(){
+			$('.topBox').animate({'height':'20%'},1000);
+			$(".title").animate({"right":0,'opacity':1},1000,function(){
+					console.log('hhhh');
 
-                if (leader != target) {
-                    flag = false;
-                }
-            }
-            if (flag) {
-                clearInterval(obj.timer);
-                if (fn) {
-                    fn();
-                }
-            }
-        }, 20);
-    }
+				});
+				$('.centent ').animate({'width':150,'height':150},1000)
+				$('.centent img').animate({'width':138,'height':138},1000,function(){
+					console.log('222');
+					$('.names').animate({'opacity':1},1000,()=>{
+						$('.introduce').animate({'height':200,'width':'95%'},1000,()=>{
+							$('.lefts').animate({'left':0},2000);
+							$('.rights').animate({'right':0},2000)
+						})
+					})
+				});
+		}
+
+function statrTwo(){
+			$('.topBoxTwo').animate({'height':'20%'},1000);
+			$(".titleTwo").animate({"right":0,'opacity':1},1000,function(){
+				// $('.introduceTwo').animate({'width':'95%'},1000,()=>{
+						
+				// 	})
+			});
+				
+		}		
+
+function endOne(){
+			$('.topBox').animate({'height':'10%'},1000);
+			$(".title").animate({"right":-220,'opacity':1},1,function(){
+					console.log('hhhh');
+				});
+				$('.centent ').animate({'width':0,'height':0},1000)
+				$('.centent img').animate({'width':0,'height':0},1,function(){
+					console.log('222');
+					$('.names').animate({'opacity':0},1000,()=>{
+						$('.introduce').animate({'height':0,'width':0},1,()=>{
+							$('.lefts').animate({'left':-500},1);
+							$('.rights').animate({'right':-500},1)
+						})
+					})
+				});
+}		
 
 </script>
 
